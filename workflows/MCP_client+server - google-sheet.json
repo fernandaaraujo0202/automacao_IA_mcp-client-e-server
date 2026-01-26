@@ -1,0 +1,332 @@
+{
+  "name": "MCP_client",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -784,
+        96
+      ],
+      "id": "5fb7bfc8-81f2-4a37-b8d1-fd1457f2303d",
+      "name": "When chat message received",
+      "webhookId": "a32994cd-dac1-429e-8099-ace77379ca72"
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxIterations": 10
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -496,
+        96
+      ],
+      "id": "6918097f-52a2-430d-b5e6-b34d4507165c",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -432,
+        368
+      ],
+      "id": "18123670-7369-41aa-83b1-03d1c7d23edc",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "REPLACE_WITH_MCP_ENDPOINT",
+        "authentication": "mcpOAuth2Api",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        -256,
+        272
+      ],
+      "id": "457eab6e-def4-4390-9bba-6fed2fd8f57f",
+      "name": "MCP Client"
+    },
+    {
+      "parameters": {
+        "model": "REPLACE_WITH_GROQ_KEY",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -576,
+        256
+      ],
+      "id": "1388d77f-9713-4483-beb8-18cfcb6fc8d1",
+      "name": "Groq Chat Model"
+    },
+    {
+      "parameters": {
+        "content": "## MCP client \n",
+        "height": 464,
+        "width": 832,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -912,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "7227d0f2-f94e-4ad2-9ed6-a431ca447e45",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "path": "REPLACE_WITH_MCP_PATH"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2,
+      "position": [
+        496,
+        80
+      ],
+      "id": "d1203a18-b5ce-4fc1-a5be-d78512c2dfea",
+      "name": "MCP Server Trigger",
+      "webhookId": "REPLACE_WITH_MCP_PATH",
+      "notesInFlow": false
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Example Spreadsheet"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Descricao",
+              "displayName": "Descricao",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Data",
+              "displayName": "Data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Responsavel",
+              "displayName": "Responsavel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Observacoes",
+              "displayName": "Observacoes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "PDF",
+              "displayName": "PDF",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        432,
+        240
+      ],
+      "id": "584e654e-1986-4b06-9a22-40878cd93da1",
+      "name": "Append or update row in sheet in Google Sheets"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "REPLACE_WITH_YOUR_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Example Spreadsheet"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Example Spreadsheet"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        592,
+        256
+      ],
+      "id": "a513db91-d70e-4d26-9a23-12e5dcd499b3",
+      "name": "Delete rows or columns from sheet in Google Sheets"
+    },
+    {
+      "parameters": {
+        "content": "## MCP server\n",
+        "height": 384,
+        "width": 560,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        256,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "ab22ddb0-a6b7-4661-a4df-318dc7dcec67",
+      "name": "Sticky Note1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete rows or columns from sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "6276377c-133f-422e-beeb-99ad43cc8a89",
+  "meta": {
+    "instanceId": "dd2046233e0c1e99960abc5790c63783188fc3a4a88600c5cef29b29b8e180d0"
+  },
+  "id": "hyQOJKTtRq4Ha3qU60C-T",
+  "tags": []
+}

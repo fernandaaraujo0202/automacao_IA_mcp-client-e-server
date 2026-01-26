@@ -1,0 +1,103 @@
+.env
+*.sqlite
+n8n_data/
+credentials/
+
+####################################
+# n8n / MCP / Workflows
+####################################
+
+# Exports e backups de workflows com dados sensíveis
+*.n8n.json
+workflows/exported/*
+workflows/private/*
+backups/
+
+# Webhooks e endpoints locais
+.webhook
+.webhooks
+.mcp
+.mcp.local
+
+####################################
+# Environment / Secrets
+####################################
+
+.env
+.env.*
+!.env.example
+
+# Tokens, keys e credenciais
+**/credentials.json
+**/service-account.json
+**/*token*
+**/*secret*
+**/*apikey*
+**/*api-key*
+
+####################################
+# MCP / LangChain / AI
+####################################
+
+# Memory / cache de agentes
+.memory
+.memory/*
+.vectorstore
+.vectorstore/*
+.cache
+.cache/*
+
+# Embeddings locais
+embeddings/
+embeddings/*
+chroma/
+faiss/
+weaviate/
+
+####################################
+# Node / Python / Runtime
+####################################
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+.env.venv
+.venv/
+
+####################################
+# OS / Editor
+####################################
+
+.DS_Store
+Thumbs.db
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+.idea/
+*.swp
+
+####################################
+# Logs
+####################################
+
+logs/
+*.log
+
+####################################
+# Build / Temp
+####################################
+
+dist/
+build/
+tmp/
+temp/
+
