@@ -1,6 +1,6 @@
 # MCP client + server para gerenciar google sheet
 
-![Status do Projeto](https://img.shields.io/badge/status-Em_andamento-yellow)
+![Status do Projeto](https://img.shields.io/badge/status-Concluido-green)
  
 Automação criada no **n8n** integrando **MCP Server** e **MCP Client** para permitir que um agente de IA **crie, atualize e exclua linhas** em uma planilha do Google Sheets de forma controlada.
 
